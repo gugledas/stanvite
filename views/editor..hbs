@@ -1,0 +1,256 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+			integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+			crossorigin="anonymous"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
+		/>
+
+		<link rel="stylesheet" href="assets/css/lib/grapes.min.css" />
+
+		<!-- style and script for  Preset webpack Builder -->
+		<!-- <script src="./js/lib/grapesjs-preset-webpage.min.js"></script>
+    <link rel="stylesheet" href="./css/lib/grapesjs-preset-webpage.min.css" /> -->
+
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<title>{{title}}</title>
+	</head>
+	<body>
+		<div id="navbar" class="sidenav d-flex flex-column overflow-scroll">
+			<nav class="navbar navbar-light my-2 mx-auto">
+				<div class="text-center">
+					<span class="h3 logo text-center col">stanvite </span>
+				</div>
+			</nav>
+			<div class="my-2 d-flex flex-column">
+				<button
+					type="button"
+					class="btn btn-outline-primary btn-sm mx-2 mb-2"
+					data-toggle="modal"
+					data-target="#newPage"
+				>
+					<i class="fa fa-plus mr-2"></i> Nouvelle Page
+				</button>
+				<ul class="list-group pages border-3">
+					<li class="list-group-item pages_item">
+						<span>Accueil</span>
+						<div class="m-2">
+							<button class="btn btn-sm btn-outline-primary">
+								<i class="fa fa-pencil"></i>
+							</button>
+							<button class="btn btn-sm btn-outline-danger">
+								<i class="fa fa-trash"></i>
+							</button>
+						</div>
+					</li>
+					<li class="list-group-item pages_item">
+						A propros
+						<div class="m-2">
+							<button class="btn btn-sm btn-outline-primary">
+								<i class="fa fa-pencil"></i>
+							</button>
+							<button class="btn btn-sm btn-outline-danger">
+								<i class="fa fa-trash"></i>
+							</button>
+						</div>
+					</li>
+					<li class="list-group-item pages_item">
+						Contact
+						<div class="m-2">
+							<button class="btn btn-sm btn-outline-primary">
+								<i class="fa fa-pencil"></i>
+							</button>
+							<button class="btn btn-sm btn-outline-danger">
+								<i class="fa fa-trash"></i>
+							</button>
+						</div>
+					</li>
+				</ul>
+			</div>
+
+			<div>
+				<ul class="nav nav-tabs d-flex justify-content-between" role="tablist">
+					<li class="nav-item" role="presentation">
+						<a
+							class="nav-link active"
+							id="block-tab"
+							data-toggle="tab"
+							role="tab"
+							aria-controls="block"
+							aria-selected="true"
+							href="#block"
+						>
+							<i class="fa fa-cubes"></i>
+						</a>
+					</li>
+					<li class="nav-item" role="presentation">
+						<a
+							class="nav-link"
+							id="layer-tab"
+							data-toggle="tab"
+							role="tab"
+							aria-controls="layer"
+							aria-selected="true"
+							href="#layer"
+						>
+							<i class="fa fa-tasks"></i>
+						</a>
+					</li>
+
+					<li class="nav-item" role="presentation">
+						<a
+							class="nav-link"
+							id="style-tab"
+							data-toggle="tab"
+							role="tab"
+							href="#style"
+							aria-controls="style"
+							aria-selected="true"
+						>
+							<i class="fa fa-paint-brush"></i>
+						</a>
+					</li>
+					<li class="nav-item" role="presentation">
+						<a
+							class="nav-link"
+							id="trait-tab"
+							data-toggle="tab"
+							role="tab"
+							aria-controls="trait"
+							aria-selected="true"
+							href="#trait"
+						>
+							<i class="fa fa-cog"></i>
+						</a>
+					</li>
+				</ul>
+				<div class="tab-content">
+					<div
+						class="tab-pane show fade active"
+						id="block"
+						role="tabpanel"
+						aria-labelledby="block-tab"
+					>
+						<div id="blocks"></div>
+					</div>
+					<div
+						class="tab-pane show fade"
+						id="trait"
+						role="tabpanel"
+						aria-labelledby="trait-tab"
+					>
+						<div id="trait-container">aeieepe</div>
+					</div>
+					<div
+						class="tab-pane show fade"
+						id="layer"
+						role="tabpanel"
+						aria-labelledby="layer-tab"
+					>
+						<div id="layer-container"></div>
+					</div>
+					<div
+						class="tab-pane show fade"
+						id="style"
+						role="tabpanel"
+						aria-labelledby="style-tab"
+					>
+						<div id="style-view"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="main-content">
+			<div class="container-fluid p-0 shadow-sm">
+				<div class="row m-0 p-0 panel">
+					<div class="panel__devices"></div>
+					<div class="panel__basic-actions"></div>
+				</div>
+			</div>
+
+			<div id="editor">
+				<p>Test de l'éditeur en utilisant la librairie Grapes JS</p>
+			</div>
+
+			<!-- Modal -->
+			<div
+				class="modal fade"
+				id="newPage"
+				data-backdrop="static"
+				data-keyboard="false"
+				tabindex="-10000"
+				aria-labelledby="newPageLabel"
+				aria-hidden="true"
+			>
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<form
+							id="creerPage"
+							novalidate
+							onsubmit="return validateForm(event)"
+						>
+							<div class="modal-header">
+								<h5 class="modal-title">Nouvelle page</h5>
+								<button
+									type="button"
+									class="close"
+									data-dismiss="modal"
+									aria-label="Close"
+									onclick="clearForm()"
+								>
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="modal-body">
+								<div class="col-auto">
+									<label for="name" class="form-label">Nom</label>
+									<input
+										type="text"
+										name="name"
+										id="name"
+										class="form-control form-control-sm"
+										placeholder="Nom de la page"
+										required
+									/>
+									<div class="invalid-feedback">
+										Veuillez entrez un nom de page valid!
+									</div>
+								</div>
+							</div>
+							<div class="modal-footer">
+								<button
+									type="button"
+									class="btn btn-secondary"
+									data-dismiss="modal"
+									onclick="clearForm()"
+								>
+									fermer
+								</button>
+								<button type="submit" class="btn btn-primary">Créer</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script src="assets/js/lib/grapes.min.js"></script>
+		<script src="assets/js/lib/grapesjs-block-basic.js"></script>
+		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"></script>
+		<script src="jassets/custom.js"></script>
+		<script src="assets/js/main.js"></script>
+	</body>
+</html>
